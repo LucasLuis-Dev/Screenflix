@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="flex flex-row">
+
+        <div class="flex flex-col w-7/12 text-white gap-[1rem]">
+
+            <img class="w-full" src="{{ object.capaFilme.url }}" alt="">
+
+            <div class="flex flex-col gap-[2rem] px-3">
+                <h1 class="text-[44px]" >{{ object.titulo }}</h1>
+
+                <h2 class="text-[22px]" >Descrição</h2>
+
+                <p>{{ object.descricao }}</p>
+
+                <div class="flex flex-row justify-between" >
+                    <p>Ano de lançamento: {{ object.dataCriacao.year }}</p>
+
+                    <p>Categoria: {{ object.categoria }}</p>
+
+                    {% if object.quantEpisodios > 0 %}
+
+                        <p>Episódios: {{ object.quantEpisodios }}</p>
+
+                    {% else %}
+
+                        <p></p>
+
+                    {% endif %}
+
+                </div>
+
+                
+            </div>
+
+
+        </div>
+
+
+        <div class="flex flex-col w-3/12 text-white px-3">
+
+            <h2 class="text-[33px]" >Opções Semelhantes</h2>
+
+            {% for filme in filmesRelacionados %}
+
+                <a href="{% url 'filme:detalhesconteudo' filme.id %}"><img src="{{ filme.thumbnail.url }}" alt=""></a>
+
+            {% endfor %}
+
+        </div>
+
+
+    </section>
+
+
+    
+
+    
+{% endblock %}

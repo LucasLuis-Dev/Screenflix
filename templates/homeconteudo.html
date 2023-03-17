@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+
+
+{% for filme in object_list %}
+    
+    <a href="{% url 'filme:detalhesconteudo' filme.id %}"><p>{{ filme.titulo }}</p></a>
+
+    <a href="{% url 'filme:detalhesconteudo' filme.id %}"><img src="{{ filme.thumbnail.url }}" alt=""></a>
+
+{% endfor %}
+
+{% endblock %}

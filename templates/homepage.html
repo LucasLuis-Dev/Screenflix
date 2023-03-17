@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+{% include 'navbar.html' %}
+
+<header 
+class="flex flex-col justify-center items-center w-full bg-black/50 bg-blend-overlay bg-no-repeat bg-center "
+style="height: 100vh; background-image: url('../static/images/capa-screenflix.png');" >
+
+    <div class="flex flex-col w-[42rem] md:filter-none z-30">
+
+        <h1 class="text-6xl font-bold text-center leading-tight text-white">Filmes, séries e muito mais. Sem limites. </h1>
+        <h4 class="text-3xl text-center leading-loose text-white">Assista onde quiser. Cancele quando quiser.</h4>
+        <p class="mt-[1rem] text-xl text-center leading-normal text-white">Quer assistir? Coloque seu email para acessar.</p>
+
+    </div>
+
+    <div class="mt-6 flex flex-col justify-center items-center">
+        <form  class="flex flex-row justify-center items-center" method="post">
+
+            <input  placeholder="Email" class="w-[35rem] py-[1.5rem] px-3 text-black" type="email" name="" id="">
+            <button class="flex flex-row justify-center items-center ml-[-0.2rem] bg-[#e50914] w-[15rem] h-[4.5rem] text-white text-[2.3rem]" type="submit">
+                Acessar
+                <ion-icon class="mt-1" name="chevron-forward-outline"></ion-icon>
+            </button>
+    
+        </form>
+    </div>
+    
+
+</header>
+
+<section class="flex flex-col justify-center items-center w-full">
+
+    <div class="bg-black border-y-8 border-[#222222] flex items-center justify-center gap-4 px-64">
+
+        <div class="flex flex-col w-1/2 h-full px-24 py-24 ">
+
+            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+                Aproveite na TV.
+            </h2>
+            <p class="text-2xl text-left leading-loose text-white">
+                Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.
+            </p>
+        </div>
+
+        <div class="w-1/2">
+            <img src="{% static 'images/tv.png' %}" alt="">
+        </div>
+
+    </div>
+
+    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+
+        <div class="w-1/2">
+            <img src="{% static 'images/device-pile.png' %}" alt="">
+        </div>
+
+        <div class="flex flex-col w-1/2 h-full px-20 py-24 ">
+
+            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+                Assista quando quiser.
+            </h2>
+            <p class="text-2xl text-left leading-loose text-white">
+                Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.
+            </p>
+        </div>
+
+        
+    </div>
+
+    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+
+
+        <div class="flex flex-col w-1/2 h-full px-20 py-24 ">
+
+            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+                Crie perfis para crianças.
+            </h2>
+            <p class="text-2xl text-left leading-loose text-white">
+                Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.
+            </p>
+        </div>
+
+        <div class="w-1/2">
+            <img src="{% static 'images/kids.png' %}" alt="">
+        </div>
+
+
+    </div>
+
+    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+
+        <div class="w-1/2">
+            <img src="{% static 'images/mobile.jpg' %}" alt="">
+        </div>
+
+        <div class="flex flex-col w-1/2 h-full px-20 py-24 ">
+
+            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+                Baixe séries para assistir offline.
+            </h2>
+            <p class="text-2xl text-left leading-loose text-white">
+                Disponíveis somente em planos sem anúncios.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+   
+<footer class="bg-black border-b-8 border-[#222222] flex items-center justify-between gap-4 px-64 py-12 text-white" >
+
+    <p>@ 2023</p>
+
+    <p>Feito com ❤️ , Python e Django</p>
+
+    <p>LucasLuis-Dev</p>
+
+
+</footer>
+
+    
+
+{% endblock %}
