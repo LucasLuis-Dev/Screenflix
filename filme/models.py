@@ -24,9 +24,10 @@ class Filme(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.TextField(max_length=1000)
     categoria = models.CharField(max_length=25, choices=LISTA_CATEGORIAS)
-    visualizações = models.IntegerField(default=0)
+    visualizacoes = models.IntegerField(default=0)
     dataCriacao = models.DateTimeField(default=timezone.now)
     quantEpisodios = models.IntegerField(default=0)
+    duracao = models.CharField(null=True, max_length=50)
 
     def __str__(self):
         return self.titulo
