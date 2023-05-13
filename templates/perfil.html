@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+<section class="flex flex-col justify-center items-center w-full bg-black/1 bg-blend-overlay bg-no-repeat bg-center "
+style="height: 100vh; background-image: url('../static/images/capa-screenflix.png');">
+
+    <div style="background-color: rgba(0, 0, 0, 0.753);" class="flex flex-col w-[450px] gap-[15px] justify-center items-center h-[550px] rounded-md p-[72px] text-white z-30">
+
+        <form method="post" >
+            {% csrf_token %}
+            <fieldset class="flex flex-col flex-wrap justify-center items-left gap-[35px] w-full ">
+                <legend class="text-[37px] font-bold">Perfil</legend>
+
+                <input type="{{ form.username.field.widget.input_type }}" name="{{ form.username.name }}" value="{{ form.username.value }}" class="bg-[#333333] rounded-md w-full" required> 
+                {{ form.username.errors }}
+                <input type="{{ form.email.field.widget.input_type }}" name="{{ form.email.name }}" value="{{ form.email.value }}" class="bg-[#333333] rounded-md w-full" required> 
+                {{form.email.errors}}
+                <a href="{% url 'filme:mudarsenha' %}" class="text-left">Deseja mudar sua senha?</a>
+                <button class="bg-[#E50914] font-bold p-[13px] rounded-md w-[350px]" type="submit">Realizar Modificações</button>
+
+            </fieldset>
+
+
+        </form>
+      
+
+        
+    </div>
+
+</section>
+   
+<footer class="bg-black border-t-8 border-[#222222] flex items-center justify-between gap-4 px-64 py-12 text-white" >
+
+    <p>@ 2023</p>
+
+    <p>Feito com ❤️ , Python e Django</p>
+
+    <p>LucasLuis-Dev</p>
+
+
+</footer>
+
+    
+
+{% endblock %}

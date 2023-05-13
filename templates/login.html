@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+
+{% load static %}
+
+
+
+{% block content %}
+
+<section class="flex flex-col justify-center items-center w-full bg-black/1 bg-blend-overlay bg-no-repeat bg-center "
+style="height: 100vh; background-image: url('../static/images/capa-screenflix.png');">
+
+    <div style="background-color: rgba(0, 0, 0, 0.753);" class="flex flex-col gap-[45px] w-[450px] h-[600px] rounded-md p-[72px] text-white z-30">
+
+        <form method="post" >
+            {% csrf_token %}
+            <fieldset class="flex flex-col gap-[35px] w-full ">
+                <legend class="text-[37px] font-bold">Entrar</legend>
+                {{ form.username }}
+                {{ form.email }}
+                {{ form.password }}
+                
+                 <button class="bg-[#E50914] font-bold p-[13px] rounded-md w-full" type="submit">Entrar</button>
+
+            </fieldset>
+
+
+        </form>
+      
+        <h2 class="text-[#737373]">Novo por aqui? <a class="text-white" href="{% url 'filme:criarconta' %}"> Cadastre-se agora.</a> </h2>
+
+        
+    </div>
+
+</section>
+   
+<footer class="bg-black border-t-8 border-[#222222] flex items-center justify-between gap-4 px-64 py-12 text-white" >
+
+    <p>@ 2023</p>
+
+    <p>Feito com ❤️ , Python e Django</p>
+
+    <p>LucasLuis-Dev</p>
+
+
+</footer>
+
+    
+
+{% endblock %}

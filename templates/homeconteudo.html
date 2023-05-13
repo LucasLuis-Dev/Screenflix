@@ -15,29 +15,28 @@
 <main>
     <header class="w-full h-screen flex flex-col">
 
-        <img src="{{ filmeMaisAssistido.capaFilme.url }}" alt="">
-
+        <img class="h-screen " src="{{ filmeMaisAssistido.capaFilme.url }}" alt="">
         
 
-        <div class="flex flex-col mt-[-690px] px-[15px] text-white gap-[20px]">
-            <h1 style="text-shadow: 2px 3px 3px rgb(0, 0, 0); text-align: start;" class="text-[100px] text-white font-bold">
+        <div class="flex flex-col mt-[-550px] px-[55px] text-white gap-[20px]">
+            <h1 style="text-shadow: 2px 3px 3px rgb(0, 0, 0); text-align: start;" class="text-[80px] text-white font-bold">
                 {{ filmeMaisAssistido.titulo }}
             </h1>
 
-            <p style="text-shadow: 1px 1px 1px rgb(0, 0, 0);" class="text-[22px] w-[500px] font-bold px-[10px]">
+            <p style="text-shadow: 2px 2px 2px rgb(0, 0, 0);" class="text-[18px] w-[700px] font-bold px-[10px]">
                 {{ filmeMaisAssistido.descricao }}
             </p>
             
             <div class="flex flex-row ">
                 <a class="px-[10px]" href="{% url 'filme:detalhesconteudo' filmeMaisAssistido.id %}">
-                    <button class="flex gap-[15px] p-[10px] text-[24px] text-black font-bold bg-white w-[205px] h-[60px] items-center justify-center rounded">
+                    <button class="flex gap-[15px] p-[10px] ease-in-out duration-150 text-[24px] text-black font-bold bg-white w-[205px] h-[60px] items-center justify-center rounded hover:opacity-75">
                         <img  width="20px" src="../static/images/Vector.png" alt="">
                         Assistir
                     </button>
                 </a>
     
-                <a class="px-[10px]" href="{% url 'filme:detalhesconteudo' filmeMaisAssistido.id %}">
-                    <button style="background-color: rgba(255, 255, 255, 0.5);" class="flex gap-[5px] p-[10px] text-[24px] text-white font-bold w-[275px] h-[58px] items-center justify-center rounded">
+                <a class="px-[10px]" href="{% url 'filme:detalhesconteudo' filmeMaisAssistido.pk %}">
+                    <button style="background-color: rgba(255, 255, 255, 0.548);" class="flex gap-[5px] ease-in-out duration-150 p-[10px] text-[24px] text-white font-bold w-[275px] h-[58px] items-center justify-center rounded hover:opacity-75">
                         <img  width="45px" src="../static/images/info.png" alt="">
                         Mais informações
                     </button>
@@ -145,6 +144,48 @@
 
         </div>
     </section>
+
+    {% if request.user.filmesVistos.all %}
+      <section class='bg-[#222222] flex justify-center '>
+        <div class="p-8 w-full relative" >
+            <h2 class="text-gray-200 text-2xl text-start text-[27px] font-medium px-[40px]">
+                Continue Assistindo
+            </h2>
+            <div class="wrapper">
+              <section id="section1Vistos" class="flex flex-nowrap items-center justify-center space-x-8">
+                <a href="#section2Vistos" class="arrow__btn text-6xl page  text-white">‹</a>
+                  {% for filme in request.user.filmesVistos.all %}
+                    {% if 5 > forloop.counter  %}
+                        <div class="item h-[220px] w-[450px] m-3">
+                            <a href="{% url 'filme:detalhesconteudo' filme.pk %}">
+                                <img src="{{ filme.thumbnail.url }}" class="rounded-md w-full h-full object-cover">
+                            </a>
+                        </div>
+                    {% endif %}
+                  {% endfor %}
+                    <a href="#section2Vistos" class="arrow__btn text-6xl  text-white">›</a>
+              </section>
+                {% if request.user.filmesVistos.all|length > 4 %}
+                  <section id="section2Vistos" class="flex flex-nowrap items-center justify-center">
+                    <a href="#section1Vistos" class="arrow__btn text-6xl  text-white">‹</a>
+                      {% for filme in request.user.filmesVistos.all %}
+                        {% if forloop.counter > 4 and forloop.counter < 9%}
+                            <div class="item h-[220px] w-[450px] m-3">
+                                <a href="{% url 'filme:detalhesconteudo' filme.pk %}">
+                                    <img src="{{ filme.thumbnail.url }}" class="rounded-md w-full h-full object-cover">
+                                </a>
+                            </div>
+                        {% endif %}
+                      {% endfor %}
+                    <a href="#section1Vistos" class="arrow__btn text-6xl text-white">›</a>
+                  </section>
+                {% endif %}
+            </div>
+
+
+        </div>
+    </section>
+  {% endif %}
 
 
 </main>

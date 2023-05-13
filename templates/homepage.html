@@ -10,42 +10,56 @@
 
 
 <header 
-class="flex flex-col justify-center items-center w-full bg-black/50 bg-blend-overlay bg-no-repeat bg-center "
-style="height: 100vh; background-image: url('../static/images/capa-screenflix.png');" >
+class="flex flex-col justify-center items-center w-full bg-[#00081d]  bg-no-repeat bg-center h-screen"
+style="height: 100%;  background-image: url('../static/images/capa-screenflix.png');" >
 
-    <div class="flex flex-col w-[42rem] md:filter-none z-30">
-
-        <h1 class="text-6xl font-bold text-center leading-tight text-white">Filmes, séries e muito mais. Sem limites. </h1>
-        <h4 class="text-3xl text-center leading-loose text-white">Assista onde quiser. Cancele quando quiser.</h4>
-        <p class="mt-[1rem] text-xl text-center leading-normal text-white">Quer assistir? Coloque seu email para acessar.</p>
+    <div style="background: #00081d86;" class="h-screen w-full absolute">
 
     </div>
 
-    <div class="mt-6 flex flex-col justify-center items-center">
-        <form  class="flex flex-row justify-center items-center" method="post">
+    <div class="flex flex-col mt-[-70px] text-left justify-start items-left w-[80%] z-30">
 
-            <input  placeholder="Email" class="w-[35rem] py-[1.5rem] px-3 text-black" type="email" name="" id="">
-            <button class="flex flex-row justify-center items-center ml-[-0.2rem] bg-[#e50914] w-[15rem] h-[4.5rem] text-white text-[2.3rem]" type="submit">
-                Acessar
-                <ion-icon class="mt-1" name="chevron-forward-outline"></ion-icon>
+        <h1 class="text-[5.6rem] w-[70%] font-bold leading-tight text-white">Filmes, séries e muito mais. Sem limites. </h1>
+        <h4 class="text-[40px]  font-bold text-white">Assista onde quiser. Cancele quando quiser.</h4>
+    
+    </div>
+
+    <div class="bg-[#090626] rounded-md z-30 p-[30px] px-[45px] w-[80%] mt-6 flex flex-col gap-[15px] justify-start items-left">
+
+        <p class="mt-[1rem] text-xl text-white">Quer assistir? Coloque seu email para acessar.</p>
+        
+
+        <form class="flex flex-row gap-[10px] justify-start items-left" method="post">
+            {% csrf_token %}
+            {{form}}
+            <button class="flex flex-row  justify-center items-center font-bold rounded-md  bg-[#e50914] w-[15rem] h-[4.5rem] text-white text-[2.0rem]" href="{% url 'filme:login' %}">
+                
+                    Vamos lá
+                    <ion-icon class="mt-1" name="chevron-forward-outline"></ion-icon>
+                
             </button>
+            
     
         </form>
     </div>
-    
 
 </header>
 
-<section class="flex flex-col justify-center items-center w-full">
+<div class="w-full h-[300px] mt-[-260px]"  style="background: linear-gradient(0deg, rgba(0,8,29,1) 21%, rgba(253,187,45,0) 100%);">
 
-    <div class="bg-black border-y-8 border-[#222222] flex items-center justify-center gap-4 px-64">
+</div>
+
+<section class="flex flex-col bg-[#00081d] justify-center items-center w-full">
+    
+
+    <div class="bg-[#090626] border-b-2 border-[#494949] z-30 w-[80%] mt-[-280px] flex items-center justify-center gap-4 px-[64px]">
 
         <div class="flex flex-col w-1/2 h-full px-24 py-24 ">
 
             <h2 class="text-5xl font-bold text-left leading-normal text-white">
                 Aproveite na TV.
             </h2>
-            <p class="text-2xl text-left leading-loose text-white">
+            <p class="text-[20px] text-left leading-loose text-white">
                 Assista em Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, aparelhos de Blu-ray e outros dispositivos.
             </p>
         </div>
@@ -56,7 +70,7 @@ style="height: 100vh; background-image: url('../static/images/capa-screenflix.pn
 
     </div>
 
-    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+    <div class="bg-[#090626] border-b-2 border-[#494949] w-[80%] flex items-center justify-center gap-4 px-[64px] py-12">
 
         <div class="w-1/2">
             <img src="{% static 'images/device-pile.png' %}" alt="">
@@ -67,7 +81,7 @@ style="height: 100vh; background-image: url('../static/images/capa-screenflix.pn
             <h2 class="text-5xl font-bold text-left leading-normal text-white">
                 Assista quando quiser.
             </h2>
-            <p class="text-2xl text-left leading-loose text-white">
+            <p class="text-[20px] text-left leading-loose text-white">
                 Assista no celular, tablet, Smart TV ou notebook sem pagar a mais por isso.
             </p>
         </div>
@@ -75,15 +89,15 @@ style="height: 100vh; background-image: url('../static/images/capa-screenflix.pn
         
     </div>
 
-    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+    <div class="bg-[#090626] border-b-2 border-[#494949] w-[80%] flex items-center justify-center gap-4 px-[64px] py-12">
 
 
         <div class="flex flex-col w-1/2 h-full px-20 py-24 ">
 
-            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+            <h2 class="text-5xl w-[110%] font-bold text-left leading-normal text-white">
                 Crie perfis para crianças.
             </h2>
-            <p class="text-2xl text-left leading-loose text-white">
+            <p class="text-[20px] w-[110%] text-left leading-loose text-white">
                 Deixe as crianças se aventurarem com seus personagens favoritos em um espaço feito só para elas, sem pagar a mais por isso.
             </p>
         </div>
@@ -95,18 +109,18 @@ style="height: 100vh; background-image: url('../static/images/capa-screenflix.pn
 
     </div>
 
-    <div class="bg-black border-b-8 border-[#222222] flex items-center justify-center gap-4 px-64 py-12">
+    <div class="bg-[#090626]  w-[80%] flex items-center justify-center gap-4 px-[64px] py-12">
 
         <div class="w-1/2">
-            <img src="{% static 'images/mobile.jpg' %}" alt="">
+            <img src="{% static 'images/device.png' %}" alt="">
         </div>
 
         <div class="flex flex-col w-1/2 h-full px-20 py-24 ">
 
-            <h2 class="text-5xl font-bold text-left leading-normal text-white">
+            <h2 class="text-5xl w-[110%] font-bold text-left leading-normal text-white">
                 Baixe séries para assistir offline.
             </h2>
-            <p class="text-2xl text-left leading-loose text-white">
+            <p class="text-[20px] text-left leading-loose text-white">
                 Disponíveis somente em planos sem anúncios.
             </p>
         </div>
@@ -115,7 +129,7 @@ style="height: 100vh; background-image: url('../static/images/capa-screenflix.pn
 
 </section>
    
-<footer class="bg-black border-b-8 border-[#222222] flex items-center justify-between gap-4 px-64 py-12 text-white" >
+<footer class="bg-[#00081d]  flex items-center justify-between gap-4 px-64 py-12 text-white" >
 
     <p>@ 2023</p>
 

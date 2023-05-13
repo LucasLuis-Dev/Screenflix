@@ -66,6 +66,7 @@ TEMPLATES = [
                 'filme.new_context.listaFilmesRecentes',
                 'filme.new_context.listaFilmesPopulares',
                 'filme.new_context.filmeMaisAssistido',
+                'filme.new_context.listaAnimes',
             ],
         },
     },
@@ -87,7 +88,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
+AUTH_USER_MODEL = "filme.Usuario"
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -133,3 +134,8 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+LOGIN_REDIRECT_URL = 'filme:homeconteudo'
+
+LOGIN_URL = 'filme:login'

@@ -1,11 +1,11 @@
 {% load static %}
 
 
-<nav id="nav" class="w-full flex justify-between items-center fixed py-3 px-4 z-50">
+<nav id="nav" class="w-full flex justify-around items-center ease-in-out duration-150 fixed px-[10%] py-3 z-50">
 
     <div class="w-6/12">
         <a href="/">
-            <img width="250px" src="{% static 'images/screenflix.png' %}" alt="">
+            <img width="240px" src="{% static 'images/screenflix.png' %}" alt="">
         </a>
         
     </div>
@@ -13,42 +13,74 @@
 
     <div class="w-6/12 flex gap-4 justify-end items-center">
 
-        <div class="bg-black text-white py-2 px-2 border border-white">
+        
+        {% if user.is_authenticated %}
 
-            <p>Português</p>
+            <div class="">
+                <form method="get" action="{% url 'filme:pesquisaConteudo' %}">
+
+                    <input style="background-image: url('../static/images/search.png'); background-repeat: no-repeat; background-size: 27px; background-position-y: center; background-position-x: 5px;" class="bg-black text-white rounded-md py-1  px-[5px] pl-[40px] border border-white w-[300px]" type="text" name="query" value="{{ request.GET.query }}" placeholder="Pesquisar">
+                    <input type="submit" value="">
+
+                </form>
+            </div>
+
+        {% else %}
+            
+            <div class="flex flex-row justify-around  bg-black w-[150px] text-center text-white py-1  px-[5px] border rounded-md border-white">
+
+                <img src="{% static 'images/internet.png' %}" alt="">
+                <p>Português</p>
 
 
-        </div>
+            </div>
+        {% endif %}
+        
+        
 
-        <div class="">
-            <form action="">
+        {% if user.is_authenticated %}
 
-                <input class="bg-black text-white py-2 px-2 border border-white" type="text" placeholder="Pesquisar">
+            <button id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex mx-3 text-sm bg-[#222222] rounded-full md:mr-0 focus:ring-4 focus:ring-[#222222]  type="button">
+                <span class="sr-only">Open user menu</span>
+                <img class="w-11  rounded-full" src="{% static 'images/profile.jpg'%}" alt="user photo">
+            </button>
 
-            </form>
-        </div>
+            <!-- Dropdown menu -->
+            <div id="dropdownAvatar" class="z-10 hidden bg-[#222222] divide-y divide-gray-100 rounded-lg shadow w-46 ">
+                <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                <div>{{request.user.username}}</div>
+                <div class="font-medium truncate">{{request.user.email}}</div>
+                </div>
+                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownUserAvatarButton">
+                <li>
+                    <a href="{% url 'filme:perfil' user.id %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Perfil</a>
+                </li>
+                <li>
+                    <a href="{% url 'filme:logout' %}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sair</a>
+                </li>
+                
+                </ul>
+                
+            </div>
 
-        <div class="">
+            
+        {% else %}
 
-            <a href="">
-                <button class="bg-[#e50914] w-[5rem] text-white py-2 px-3 rounded-[4px]">
-                    Entrar
-                </button>
-            </a>
+            
             
 
-        </div>
+            <div class="">
 
-        <div class="">
-            <a href="">
-                <button class=" text-white py-1 px-3">
-                    Editar Perfil
-                </button>
-            </a>
-            
+                <a href="{% url 'filme:login' %}">
+                    <button class="flex items-center justify-center bg-[#e50914] w-[5rem] text-white text- py-[6px] px-[35px] rounded-md">
+                        Entrar
+                    </button>
+                </a>
+                
 
-        </div>
+            </div>
 
+        {% endif %}
     </div>
 
 </nav>

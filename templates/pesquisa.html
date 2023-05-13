@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+
+    <section class="flex flex-col p-[45px] py-[160px] gap-4 w-full">
+
+        
+
+        <h1 class="text-[22px] text-[#7C8080]" >Veja títulos sobre: {{ request.GET.query }}</h1>
+
+
+        <div class="flex flex-row flex-wrap gap-2 items-center w-full">
+
+           
+
+            {% for filme in object_list %}
+
+                <div>
+                    <a href="{% url 'filme:detalhesconteudo' filme.pk %}">
+
+                        <img class="rounded-md w-full" src="{{ filme.thumbnail.url }}" alt="">
+
+                    </a>
+                </div>
+
+                
+            {% endfor %}
+
+
+        </div>
+
+    </section>
+
+</main>
+
+
+{% endblock %}
