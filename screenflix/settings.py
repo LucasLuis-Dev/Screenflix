@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-z#b&yn1db%dmeki6ns$n*(w=@7i7nwzz0na&v!!ro4)ui_0l4r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['Screenflix.com']
 
 
 # Application definition
