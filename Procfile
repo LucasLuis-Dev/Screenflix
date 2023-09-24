@@ -1,1 +1,1 @@
-web: gunicorn SCREENFLIX.wsgi --bind 0.0.0.0:$PORT
+web: gunicorn screenflix.wsgi --bind 0.0.0.0:$PORT
