@@ -43,3 +43,80 @@ Em resumo, o Screenflix feito com Django, Python e Tailwind CSS é uma aplicaç�
 <img src="https://cdn.discordapp.com/attachments/965066624556232737/1107501638945603695/Captura_de_tela_de_2023-05-14_23-41-27.png">
 <br>
 <img src="https://cdn.discordapp.com/attachments/965066624556232737/1107501667093594195/Captura_de_tela_de_2023-05-14_23-41-36.png">
+
+
+
+
+# ScreenFlix - Guia de Instalação
+
+## Pré-requisitos
+- Python 3.x
+- pip (gerenciador de pacotes Python)
+
+## Passo a Passo de Instalação
+
+### 1. Clone o repositório
+```bash
+git clone https://github.com/LucasLuis-Dev/Screenflix.git
+cd screenflix
+```
+
+### 2. Configure o Ambiente Virtual
+```bash
+# Criar ambiente virtual
+python -m venv venv
+
+# Ativar ambiente virtual
+# Windows:
+venv\Scripts\activate
+# Linux/Mac:
+source venv/bin/activate
+```
+
+### 3. Instale as Dependências
+```bash
+# Atualizar pip
+pip install --upgrade pip
+
+# Instalar Pillow primeiro
+pip install Pillow==9.5.0
+
+# Instalar demais dependências
+pip install -r requirements.txt
+```
+
+### 4. Configure o Banco de Dados
+```bash
+python manage.py migrate
+```
+
+### 5. Crie um Superusuário
+```bash
+python manage.py createsuperuser
+```
+Siga as instruções para criar nome de usuário, email e senha.
+
+### 6. Inicie o Servidor
+```bash
+python manage.py runserver
+```
+
+## Acessando a Aplicação
+- Interface principal: `http://127.0.0.1:8000/`
+- Painel administrativo: `http://127.0.0.1:8000/admin/`
+
+## Comandos Úteis
+- Parar o servidor: `Ctrl+C`
+- Criar novas migrações: `python manage.py makemigrations`
+- Aplicar migrações: `python manage.py migrate`
+
+## Solução de Problemas
+Se encontrar erro de acesso ao servidor, verifique se o `ALLOWED_HOSTS` no arquivo `settings.py` inclui:
+```python
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+```
+
+## Observações
+- Mantenha o ambiente virtual ativado enquanto estiver trabalhando no projeto
+- Para desativar o ambiente virtual quando terminar: `deactivate`
+```
